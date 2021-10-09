@@ -1,0 +1,397 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar-top-fixed.css' %}" rel="stylesheet">
+
+    <style>
+        .font-size{
+            font-size: 20px; 
+            font-weight: bold;
+        }
+         table{
+            border-collapse: collapse;
+            height: 40px;
+            width: 250px;
+            font-size: 10px;
+        }
+        .imgresizing{
+            height: 200px; 
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body style="background-color: wheat;">
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="row">
+        {% for item in queryset %}
+            <div class="col-md mt-3">
+                <div class="card card-deck" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/trainingroom.jpg' %}" alt="training room image">
+                        <h5 class="card-title">
+                            <h3>{{item.name}}</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level {{item.capacity_level}} <br> Price Per day birr
+                                {{item.price}}</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md mt-3">
+                <div class="card card-deck" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/boteled_water_0.5l.jpg' %}" alt="boteled water 0.5l">
+                        <h5 class="card-title">
+                            <h3>Bottled Water 0.5 L</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 1 Person <br> Price Per day birr
+                                17.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card card-deck" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/bed.jpg' %}"  alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3>Bed</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 1 per Person <br> Price Per day birr
+                                200.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class="row">
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/lcd.jpg' %}" alt="lcd image">
+                        <h5 class="card-title">
+                            <h3>LCD</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 01<br> Price Per day birr
+                                150.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/lunch_food.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3 class="font-size">Lunch and Dinner</h3>
+                        </h5>
+                        <p class="card-text">
+                            <table border="1">
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Regular</th>
+                                    <th>Fast</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="lunch_dinner">
+                                        <label for="level">1st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">255.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">110.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name = "lunch_dinner">
+                                        <label for="level">2st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">210.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">85.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="lunch_dinner">
+                                        <label for="level">3st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">145.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">75.00 birr</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/large-hall.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3>Large Hall</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 1000 Person <br> Price Per day birr
+                                3000.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/flipcahrt.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3>Flip Chart</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 01 <br> Price Per day birr
+                                360.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/notebook.jpg' %}" alt="notebook image">
+                        <h5 class="card-title">
+                            <h3>Notebook</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level per Person <br> Price Per day birr
+                                60.00 100 page</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/breakfast_food.jpg' %}" alt="breakfast food image cap">
+                        <h5 class="card-title">
+                            <h3 class="font-size">Breakfast</h3>
+                        </h5>
+                        <p class="card-text">
+                            <table border="1">
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Regular</th>
+                                    <th>Fast</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="breakfast">
+                                        <label for="level">1st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">115.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">70.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name = "breakfast">
+                                        <label for="level">2st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">71.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">50.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="breakfast">
+                                        <label for="level">3st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">50.00 birr</label>
+                                    </td>
+                                    <td>
+                                        <label for="fast-birr">40.00 birr</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/training-service-charge.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3 class="font-size">Training Service Charge</h3>
+                        </h5>
+                        <p class="card-text">
+                            <table border="1">
+                                <tr>
+                                    <th>Regular</th>
+                                    <th>Price</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="training-service-charge">
+                                        <label for="level">Government Offices and Public Enterprises</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">40.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name = "training-service-charge">
+                                        <label for="level">Universities and Collages</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">60.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="training-service-charge">
+                                        <label for="level">Private Sector</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">60.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="training-service-charge">
+                                        <label for="level">NGOs</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">70.00 birr</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>           
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/coffee-and-tea.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3 class="font-size">Refrashment</h3>
+                        </h5>
+                        <p class="card-text">
+                            <table border="1">
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Regular Price</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="refrashment">
+                                        <label for="level">1st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">100.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name = "refrashment">
+                                        <label for="level">2st level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">80.00 birr</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="refrashment">
+                                        <label for="level">3rd level</label>
+                                    </td>
+                                    <td>
+                                        <label for="regular-birr">17.00 birr</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md mt-3">
+                <div class="card" style="width: 18rem;">                    
+                    <div class="card-body">
+                        <img class="card-img-top imgresizing" src="{% static 'img/small-hall.jpg' %}" alt="Card image cap">
+                        <h5 class="card-title">
+                            <h3>Small Hall</h3>
+                        </h5>
+                        <p class="card-text">
+                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <label style="font-size: 15px;"> Capacity Level 100 Person <br> Price Per day birr
+                                700.00</label>
+                        </p>
+                        <center><a href="#" class="btn btn-primary center"> Order </a></center>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <br>
+    </div>
+        <!-- Footer -->
+
+        {% include 'footter.html' %}
+
+        <script link src="{% static 'js/bootstrap.bundle.min.js' %}" rel="JavaScript"></script>
+</body>
+
+</html>
